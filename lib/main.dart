@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Responsive Dashboard',
+      title: 'Habit Haven App',
       debugShowCheckedModeBanner: false,
       themeMode: ThemeMode.dark,
       theme: ThemeData(
@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
               900: const Color(primaryColorCode).withOpacity(1.0),
             },
           ),
-          scaffoldBackgroundColor: Color(0xFF171821),
+          scaffoldBackgroundColor: const Color(0xFF171821),
           fontFamily: 'IBMPlexSans',
           brightness: Brightness.dark),
       home: DashBoard(),

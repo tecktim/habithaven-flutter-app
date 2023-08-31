@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dashboard/Responsive.dart';
+import 'package:flutter_dashboard/chat.dart'; // Make sure to import your ChatScreen
 import 'package:flutter_dashboard/model/menu_modal.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -9,16 +10,17 @@ class Menu extends StatefulWidget {
   const Menu({super.key, required this.scaffoldKey});
 
   @override
+  // ignore: library_private_types_in_public_api
   _MenuState createState() => _MenuState();
 }
 
 class _MenuState extends State<Menu> {
   List<MenuModel> menu = [
     MenuModel(icon: 'assets/svg/home.svg', title: "Dashboard"),
+    MenuModel(icon: 'assets/svg/burn.svg', title: "Habit-Coach"),
+    MenuModel(icon: 'assets/svg/history.svg', title: "Habit-Tracker"),
     MenuModel(icon: 'assets/svg/profile.svg', title: "Profile"),
-    MenuModel(icon: 'assets/svg/exercise.svg', title: "Exercise"),
     MenuModel(icon: 'assets/svg/setting.svg', title: "Settings"),
-    MenuModel(icon: 'assets/svg/history.svg', title: "History"),
     MenuModel(icon: 'assets/svg/signout.svg', title: "Signout"),
   ];
 
@@ -62,6 +64,20 @@ class _MenuState extends State<Menu> {
                       selected = i;
                     });
                     widget.scaffoldKey.currentState!.closeDrawer();
+
+                    // Navigate to ChatScreen when "Habit-Coach" is clicked
+                    if (menu[i].title == "Habit-Coach") {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const ChatScreen()),
+                      );
+                    }
+
+                    // Pop off the ChatScreen to reveal the Dashboard when "Dashboard" is clicked
+                    if (menu[i].title == "Dashboard") {
+                      Navigator.pop(context);
+                    }
                   },
                   child: Row(
                     children: [
@@ -70,6 +86,7 @@ class _MenuState extends State<Menu> {
                             horizontal: 13, vertical: 7),
                         child: SvgPicture.asset(
                           menu[i].icon,
+                          // ignore: deprecated_member_use
                           color: selected == i ? Colors.black : Colors.grey,
                         ),
                       ),

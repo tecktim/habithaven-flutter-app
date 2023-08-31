@@ -12,6 +12,7 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // ignore: no_leading_underscores_for_local_identifiers
     SizedBox _height(BuildContext context) => SizedBox(
           height: Responsive.isDesktop(context) ? 30 : 20,
         );

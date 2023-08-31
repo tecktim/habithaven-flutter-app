@@ -24,26 +24,34 @@ class Profile extends StatelessWidget {
           child: Column(
             children: [
               const SizedBox(
-                height:   50,
+                height: 50,
               ),
-              Image.asset(
-                "assets/images/avatar.png",
+              ClipRRect(
+                borderRadius: BorderRadius.circular(16.0),
+                child: Image.asset(
+                  "assets/images/avatar.png",
+                ),
               ),
               const SizedBox(
                 height: 15,
               ),
               const Text(
-                "Summer",
+                "Tim",
                 style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
               ),
               const SizedBox(
                 height: 2,
               ),
-              Text(
-                "Edit health details",
-                style: TextStyle(
-                  fontSize: 12,
-                  color: Theme.of(context).primaryColor,
+              GestureDetector(
+                onTap: () {
+                  // Add your click event action here
+                },
+                child: Text(
+                  "Edit health details",
+                  style: TextStyle(
+                    fontSize: 12,
+                    color: Theme.of(context).primaryColor,
+                  ),
                 ),
               ),
               Padding(
