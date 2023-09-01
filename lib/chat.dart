@@ -228,7 +228,7 @@ class _ChatScreenState extends State<ChatScreen> {
       headers: {
         'Content-Type': 'application/json',
         'Authorization':
-            'Bearer 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'
+            'Bearer TOKEN'
       },
       body: jsonEncode(body),
     );
